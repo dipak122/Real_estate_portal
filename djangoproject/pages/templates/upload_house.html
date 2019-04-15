@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+  You have successfully login
+</div>
+
+<h2>Upload House</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Upload House</button>
+
+</form>
+
+<a  href="{% url 'house_list' %}">My list of house</a>
+
+{% endblock %}

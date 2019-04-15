@@ -1,0 +1,54 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>House</h2>
+<a href="{% url 'index' %}">go to home page</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Cover</th>
+        <th>location</th>
+
+        <th>address</th>
+        <th>sqr.feet</th>
+        <th>₹</th>
+        <th>phone_no</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for house in house %}
+    <tr>
+        <td>
+            {% if house.cover %}
+            <img src="{{ house.cover.url }}" alt="{{ house.location }}" style="width:300px;">
+            {% else %}
+                <span class="text-muted">No cover</span>
+            {% endif %}
+        </td>
+        <td>{{ house.location }}</td>
+        <td>{{ house.address }}</td>
+        <td>{{ house.sq_feet }}</td>
+        <td>{{ house.rupees }}</td>
+        <td>{{ house.phone_no }}</td>
+
+        <td>
+            <form method="post" action="{% url 'delete_house' house.pk %}" >
+                {% csrf_token %}
+                <botton class="btn btn-danger btn-sm" type="submit">Delete</botton>
+
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+

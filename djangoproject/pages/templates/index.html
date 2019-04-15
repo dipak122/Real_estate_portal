@@ -1,0 +1,141 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+
+
+	<![endif]-->
+
+
+	<!-- Page Preloder -->
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">REAL ESTATE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'login' %}">lOGIN</a>
+      </li>
+		 <li class="nav-item">
+        <a class="nav-link" href="{%url 'register' %}">REGISTER</a>
+      </li>
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="search/" method="post">
+        {% csrf_token %}
+      <input type="text" class="form-control"  placeholder="Enter username" name="place" >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+<h2>House</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Cover</th>
+        <th>location</th>
+
+        <th>address</th>
+        <th>sqr.feet</th>
+        <th>₹</th>
+        <th>phone_no</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for house in house %}
+
+    <tr>
+        <td>
+            {% if house.cover %}
+            <img src="{{ house.cover.url }}" alt="{{ house.location }}" style="width:300px;">
+            {% else %}
+                <span class="text-muted">No cover</span>
+            {% endif %}
+        </td>
+        <td>{{ house.location }}</td>
+        <td>{{ house.address }}</td>
+        <td>{{ house.sq_feet }}</td>
+        <td>{{ house.rupees }}</td>
+        <td>{{ house.phone_no }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+	
+	<!-- Header section -->
+
+	<!-- Header section end -->
+
+
+
+</br>
+</br></br></br></br>
+	<!-- Hero section -->
+	<center><section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
+		<div class="container hero-text text-dark">
+			<h2>find your place with our local life style</h2>
+			<p>Search real estate property records, houses, condos, land and more on leramiz.com®.<br>Find property info from the most comprehensive source data.</p>
+			<a href="#" class="site-btn">VIEW DETAIL</a>
+		</div>
+	</section></center>
+	<!-- Hero section end -->
+
+
+	<!-- Filter form section -->
+
+
+
+			<div class="footer-bottom">
+				<div class="footer-nav">
+					<ul>
+						<li><a href="">Home</a></li>
+						<li><a href="">Featured Listing</a></li>
+						<li><a href="">About us</a></li>
+						<li><a href="">Pages</a></li>
+						<li><a href="">Blog</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</div>
+
+
+				<center><div class="copyright">
+					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				</div>
+			</div>
+		</div>
+	</footer></center>
+	<!-- Footer section end -->
+                                        
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+{% endblock %}
