@@ -1,0 +1,15 @@
+pip install virtualenv
+
+
+then visit to \MyDjangoProject-master\venv folder
+
+Type  Scripts\activate 
+then pip install django
+pip install django-crispy-forms
+
+atlast visit
+\MyDjangoProject-master\djangoproject
+
+
+type python manage.py runserver
+
