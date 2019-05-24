@@ -23,8 +23,9 @@ First install python and virtualenv.
 > pip install virtualenv
 
 create and activate the virtual environment
-'''
+
+```
 virtualenv venv && source bin/activate
 pip install -r requirements.txt
 python manage.py migrate
-'''
+```
