@@ -9,5 +9,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 You're going to need the tools below to run on your machine
 
-* [python](https://www.pon.org) -python
+* [python](https://www.python.org) -python
+* [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) -virtualenv
 
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+First install python and virtualenv.
+
+* [python](https://www.python.org/downloads/) - python programming language
+
+> pip install virtualenv
