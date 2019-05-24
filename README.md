@@ -24,8 +24,15 @@ First install python and virtualenv.
 
 create and activate the virtual environment
 
+then visit to
+> \MyDjangoProject-master\venv\Scripts\activate   
+then enter
+
 ```
-virtualenv venv && source bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 ```
+### Atlast visit
+\MyDjangoProject-master\djangoproject
+
+>python manage.py runserver 
